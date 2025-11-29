@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+  <!-- default MarketValue is 1.20 for wood -->
+
+  <!-- Adjusting the "stuffProps/statFactors/MarketValue" fails to have an in-game effect
+  on the value of things like shelves and walls. The default value is 0.40 for stone,
+  probably 1.00 for wood? -->
+
+  <!-- per experiments, walls have a base value of around $3.30. -->
+
+  <Operation Class="XmlExtensions.PatchOperationSafeAddOrReplace">
+    <xpath>Defs/ThingDef[defName="WoodLog"]</xpath>
+    <value>
+      <statBases>
+        <MarketValue>0.20</MarketValue>
+      </statBases>
+      <!-- 
+        <stuffProps>
+          <statFactors>
+            <MarketValue>0.05</MarketValue>
+          </statFactors>
+        </stuffProps>
+        -->
+    </value>
+  </Operation>
+
+</Patch>
